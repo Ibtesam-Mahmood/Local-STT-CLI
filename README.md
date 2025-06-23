@@ -1,6 +1,6 @@
 # Local-STT-CLI
 
-`v0.1.1`
+`v0.1.2`
 
 Performs speech to text translatio using a local Vosk model.
 

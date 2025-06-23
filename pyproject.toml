@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "local-stt"
-version = "0.1.1"
+version = "0.1.2"
 description = "Offline Speech-to-Text tool using Vosk"
 readme = "README.md"
 requires-python = ">=3.12,<4.0"
@@ -29,7 +29,7 @@ local_stt = ["model/vosk-model-en-us-0.42-gigaspeech/**"]
 
 [tool.poetry]
 name = "local-stt"
-version = "0.1.1"
+version = "0.1.2"
 description = "Offline Speech-to-Text tool using Vosk"
 authors = ["Ibtesam Mahmood <ibtesam.mahmood2@gmail.com>"]
 packages = [{ include = "local_stt", from = "src" }]
