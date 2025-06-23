@@ -1,0 +1,1 @@
+exclude src/local_stt/model/vosk-model-en-us-0.42-gigaspeech/**

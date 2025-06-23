@@ -23,6 +23,9 @@ localstt = "local_stt.cli:main"
 packages = ["local_stt"]
 package-dir = { "" = "src" }
 
+[tool.setuptools.exclude-package-data]
+local_stt = ["model/vosk-model-en-us-0.42-gigaspeech/**"]
+
 [tool.poetry]
 name = "local-stt"
 version = "0.1.0"

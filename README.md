@@ -1,4 +1,6 @@
-"# Local-STT-CLI"
+# Local-STT-CLI
+
+`v0.1.0`
 
 ## Prior to running
 
@@ -44,4 +46,10 @@ Run `pip show local-stt` after insatlling to discover where this was insatlled. 
 git clone https://github.com/Ibtesam-Mahmood/Local-STT-CLI.git
 pip install .
 localstt file_name -o output_file
+```
+
+### Insatlling with Git
+
+```sh
+pip install git+https://github.com/Ibtesam-Mahmood/Local-STT-CLI.git
 ```
