@@ -1,0 +1,22 @@
+[project]
+name = "local-stt"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Ibtesam Mahmood",email = "ibtesam.mahmood2@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "argparse (>=1.4.0,<2.0.0)",
+    "pyaudio (>=0.2.14,<0.3.0)",
+    "vosk (>=0.3.45,<0.4.0)"
+]
+
+[tool.poetry]
+packages = [{include = "local_stt", from = "src"}]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
