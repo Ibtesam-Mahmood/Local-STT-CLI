@@ -1,3 +1,47 @@
 "# Local-STT-CLI"
 
-Before running [download the vosk-model-en-us-0.42-gigaspeech Model](https://alphacephei.com/vosk/models) and place it inside the `src/local_stt/model` folder.
+## Prior to running
+
+### Install Vosk Model
+
+Before running [download the vosk-model-en-us-0.42-gigaspeech Model](https://alphacephei.com/vosk/models).
+
+### (Optional) Install poetry
+
+This project was created in [Poetry](https://python-poetry.org/) and you may use it to runt he project.
+
+## Options
+
+The cli application takes the following options and parameters when running `localstt`
+
+| Argument     | Type       | Description                                                                                  | Required |
+| ------------ | ---------- | -------------------------------------------------------------------------------------------- | -------- |
+| file         | Positional | Directory for the audio file to be processed                                                 | Yes      |
+| -o, --output | Optional   | Directory for the output file, by default creates a text file with the same name as the file | No       |
+| -m, --model  | Optional   | Directory for the vosk-model-en-us-0.42-gigaspeech model                                     | No       |
+
+## Execution
+
+### Running through Poetry
+
+Place the `vosk-model-en-us-0.42-gigaspeech Model` inside the `src/local_stt/model` folder.
+
+Run:
+
+```sh
+poetry install
+poetry run localstt file_name -o output_file
+```
+
+## Installation
+
+When you install this package locally you must move the model into the `src/local_stt/model` folder within the package insatllation directory.
+Run `pip show local-stt` after insatlling to discover where this was insatlled. Then move the `vosk-model-en-us-0.42-gigaspeech Model` into the correct folder.
+
+### Installing with Poetry
+
+```sh
+poetry build
+pip install dist/local_stt-0.1.0-py3-none-any.whl
+localstt file_name -o output_file
+```
