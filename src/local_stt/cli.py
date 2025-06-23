@@ -1,12 +1,16 @@
 import argparse
 from .stt import STTParser
+from . import __version__
 
 def get_cli_args():
   #  Define the args
   parser = argparse.ArgumentParser(description="A project uses a vosk model to parse speech to text from wav files")
 
+  # Version flag
+  parser.add_argument('-v', '--version', action='store_true', help="Print the version and exit.")
+
   # Positional argument
-  parser.add_argument("file", help="Directory for the audio file to be processed")
+  parser.add_argument("file", nargs='?', help="Directory for the audio file to be processed")
   
   # Optional flag
   parser.add_argument('-o', '--output', help="Directory for the output file, by default creates a text file with the same name as the file", default=None)
@@ -18,9 +22,13 @@ def get_cli_args():
   return args
 
 def main():
-  
   # Get the CLI Args
   args = get_cli_args()
+
+  if getattr(args, 'version', False):
+    print(f"local-stt v{__version__}")
+    return
+
   file = args.file
   output = args.output
   model = args.model
