@@ -14,16 +14,20 @@ Before running [download the vosk-model-en-us-0.42-gigaspeech Model](https://alp
 
 This project was created in [Poetry](https://python-poetry.org/) and you may use it to run the project.
 
+### (Optional) Install ffmpeg
+
+When using the `--convert` flag you must install [ffmpeg](https://ffmpeg.org/) on your system.
+
 ## Options
 
 The cli application takes the following options and parameters when running `localstt`
 
-| Argument      | Type       | Description                                                                                  | Required |
-| ------------- | ---------- | -------------------------------------------------------------------------------------------- | -------- |
-| file          | Positional | Directory for the audio file to be processed                                                 | Yes      |
-| -o, --output  | Optional   | Directory for the output file, by default creates a text file with the same name as the file | No       |
-| -m, --model   | Optional   | Directory for the vosk-model-en-us-0.42-gigaspeech model                                     | No       |
-| -c, --convert | Optional   | Determines if the system shoudl convert the audio files to wav before proceeding             | No       |
+| Argument      | Type       | Description                                                                                       | Required |
+| ------------- | ---------- | ------------------------------------------------------------------------------------------------- | -------- |
+| file          | Positional | Directory for the audio file to be processed                                                      | Yes      |
+| -o, --output  | Optional   | Directory for the output file, by default creates a text file with the same name as the file      | No       |
+| -m, --model   | Optional   | Directory for the vosk-model-en-us-0.42-gigaspeech model                                          | No       |
+| -c, --convert | Optional   | Determines if the system shoudl convert the audio files to wav before proceeding. Requires ffmpeg | No       |
 
 ## Execution
 
