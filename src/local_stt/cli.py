@@ -1,4 +1,3 @@
-
 import argparse
 from .stt import STTParser
 
@@ -12,6 +11,7 @@ def get_cli_args():
   # Optional flag
   parser.add_argument('-o', '--output', help="Directory for the output file, by default creates a text file with the same name as the file", default=None)
   parser.add_argument('-m', '--model', help="Directory for the vosk-model-en-us-0.42-gigaspeech model", default=None)
+  parser.add_argument('-c', '--convert', action='store_true', help="If set, perform conversion operation in addition to parsing.")
 
   # Parse the args and return them
   args = parser.parse_args()
@@ -24,14 +24,19 @@ def main():
   file = args.file
   output = args.output
   model = args.model
+  convert = args.convert
   
   # Create the parser
-  print('Loading Model')
   output_file = output if output else file.split('.')[0] + '.txt'
-  parser = STTParser(output_file=output_file, model_path=model)
+  parser = STTParser(
+    audio_file=file,
+    output_file=output_file, 
+    model_path=model, 
+    convert=convert
+  )
   
   # Run the parser
   print(f"Processing file: {file}")
   print(f"Output will be saved to: {output_file}")
-  parser.parse(file)
+  parser.parse()
   # poetry run localstt input\TestRecording.wav -o output\TestRecording.txt
