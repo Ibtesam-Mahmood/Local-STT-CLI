@@ -3,8 +3,6 @@ cffi==1.17.1
 charset-normalizer==3.4.2
 colorama==0.4.6
 idna==3.10
-# Editable Git install with no remote (local-stt==0.1.0)
--e d:\users\ibtesam\documents\~programming~\ai\local_stt
 pycparser==2.22
 requests==2.32.4
 srt==3.5.3
