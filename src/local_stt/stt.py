@@ -4,6 +4,7 @@ from local_stt import model
 import wave
 import json
 from vosk import Model, KaldiRecognizer, SetLogLevel
+import tqdm
 
 # Get the absolute path of the current script
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -77,17 +78,22 @@ class STTParser:
     # Initialize the recognizer using the input's sample rate
     rec = KaldiRecognizer(self.model, self.wf.getframerate())
     
-    # Process the audio file in chunks
+    # Process the audio file in chunks with tqdm progress bar
     print("Starting speech recognition...")
     results = []
-    while True:
-        data = self.wf.readframes(4000)
-        if len(data) == 0:
-            break
-        # Process chunk; if a full utterance is detected, Result() is returned
-        if rec.AcceptWaveform(data):
-            r = json.loads(rec.Result())
-            results.append(r.get("text", ""))
+    total_frames = self.wf.getnframes()
+    chunk_size = 4000
+    with tqdm.tqdm(total=total_frames, unit="frames", desc="Recognizing") as pbar:
+        frames_read = 0
+        while True:
+            data = self.wf.readframes(chunk_size)
+            if len(data) == 0:
+                break
+            frames_read += chunk_size
+            pbar.update(min(chunk_size, total_frames - pbar.n))
+            if rec.AcceptWaveform(data):
+                r = json.loads(rec.Result())
+                results.append(r.get("text", ""))
     
     # Grab any leftover speech
     final = json.loads(rec.FinalResult())

@@ -1,0 +1,16 @@
+build==1.2.2.post1
+certifi==2025.6.15
+cffi==1.17.1
+charset-normalizer==3.4.2
+colorama==0.4.6
+idna==3.10
+-e git+https://github.com/Ibtesam-Mahmood/Local-STT-CLI.git@a946a549c6b04224769b551d86496b6e5f7cbe96#egg=local_stt
+packaging==25.0
+pycparser==2.22
+pyproject_hooks==1.2.0
+requests==2.32.4
+srt==3.5.3
+tqdm==4.67.1
+urllib3==2.5.0
+vosk==0.3.45
+websockets==15.0.1
