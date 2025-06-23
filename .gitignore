@@ -2,4 +2,8 @@
 .env
 __pycache__
 .DS_STORE
-model/vosk-model-en-us-0.42-gigaspeech
+input
+output
+dist
+src/local_stt/model/*
+!src/local_stt/model/README.md
